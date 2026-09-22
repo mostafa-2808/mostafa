@@ -5,6 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EletroPro - Materiais e Ferramentas Elétricas</title>
     
+    <!-- خطوط جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header>
+        <div class="header-top">
+            <a href="#inicio" class="logo">⚡ EletroPro</a>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 Carrinho (<span id="cart-count">0</span>)
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- الصفحة الرئيسية -->
+    <section id="inicio">
+        <h1>Energia e Precisão para o Seu Projeto</h1>
+        <p>Descubra a melhor seleção de ferramentas e materiais elétricos com qualidade profissional e preços imbatíveis.</p>
+        <a href="#produtos" class="btn-primary">Ver Produtos</a>
+    </section>
+
+    <!-- صفحة المنتجات -->
+    <section id="produtos">
+        <h2 class="section-title">Nossos Produtos</h2>
+        
+        <!-- حقل البحث -->
+        <div class="search-container">
+            <input type="text" id="searchInput" oninput="filtrarProdutos()" placeholder="Buscar produto pelo nome...">
+        </div>
+
+        <div class="produtos-grid" id="produtosGrid">
+            <!-- يتم تحميل المنتجات تلقائياً عبر السكربت -->
+        </div>
+    </section>
+
+    <!-- صفحة من نحن -->
+    <section id="sobre">
+        <h2 class="section-title">Sobre Nós</h2>
+        <p>A <strong>EletroPro</strong> é líder no mercado de distribuição de materiais elétricos e ferramentas de alta performance. Com mais de 10 anos de experiência, nosso compromisso é oferecer produtos de qualidade internacional, garantindo a segurança e o sucesso de engenheiros, eletricistas e entusiastas do "faça você mesmo" em todo o Brasil.</p>
+    </section>
+
+    <!-- صفحة التواصل -->
+    <section id="contato">
+        <h2 class="section-title">Fale Conosco</h2>
+        <div class="contato-container">
+            <div class="contato-info">
+                <h3>Nossos Contatos</h3>
+                <p>📍 <strong>Endereço:</strong> Av. Paulista, 1000 - São Paulo, SP</p>
+                <p>📞 <strong>Telefone / WhatsApp:</strong> +55 (45) 99999-9999</p>
+                <p>✉️ <strong>Email:</strong> contato@eletropro.com.br</p>
+                <p>🕒 <strong>Horário:</strong> Seg - Sex: 08:00 às 18:00</p>
+                
+                <h3 style="margin-top: 20px;">Redes Sociais</h3>
+                <p>Instagram: @eletropro_br</p>
+                <p>Facebook: /EletroProOficial</p>
+            </div>
+            
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.19757650849!2d-46.65866168502224!3d-23.56133748468249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1619623838234!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة السلة -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="cart-modal">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">Seu Carrinho</h2>
+            
+            <div id="cart-items"></div>
+            
+            <div class="cart-total">
+                <strong>Total: R$ <span id="total-price">0.00</span></strong>
+            </div>
+            
+            <button class="btn-add" style="width: 100%; margin-top: 20px;" onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- نافذة الشراء / النماذج -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="cart-modal">
+            <span class="close-btn" onclick="fecharEConcluir()">&times;</span>
+            
+            <div id="checkoutFormContent">
+                <h2 style="margin-bottom: 20px; color: var(--primary-color);">Dados para Entrega</h2>
+                
+                <form id="checkoutForm" onsubmit="enviarPedido(event)">
+                    <input type="hidden" name="access_key" value="48042b0a-9a1a-44d0-93c9-510edb95448c">
+                    <input type="hidden" name="subject" value="Novo Pedido - EletroPro">
+                    <input type="hidden" name="detalhes_do_pedido" id="pedidoInput">
+
+                    <div style="margin-bottom: 15px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Nome Completo:</label>
+                        <input type="text" name="nome" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Telefone / WhatsApp:</label>
+                        <input type="tel" name="telefone" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Endereço de Entrega:</label>
+                        <textarea name="endereco" required rows="3" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-add" style="width: 100%; margin-top: 10px;" id="btnEnviar">Enviar Pedido</button>
+                </form>
+            </div>
+
+            <div id="checkoutSuccess" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 60px; color: #28a745; margin-bottom: 15px;">✓</div>
+                <h2 style="color: #28a745; margin-bottom: 10px;">Pedido Enviado com Sucesso!</h2>
+                <p style="color: #555; margin-bottom: 25px; line-height: 1.5;">Obrigado pelo seu pedido. Recebemos suas informações e entraremos em contato em breve!</p>
+                <button class="btn-add" onclick="fecharEConcluir()" style="width: 100%;">Concluir</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" class="whatsapp-float" title="Contato via WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.57 4.186 1.564 5.95l-1.594 5.823 5.961-1.56c1.696.92 3.633 1.442 5.669 1.442 6.627 0 12-5.373 12-12s-5.373-12-12-12zm0 21.82c-1.782 0-3.486-.474-4.97-1.298l-.356-.197-3.692.966.984-3.593-.223-.355c-.933-1.488-1.425-3.218-1.425-5.013 0-5.187 4.223-9.41 9.41-9.41 5.187 0 9.41 4.223 9.41 9.41 0 5.188-4.223 9.41-9.41 9.41z"/>
+        </svg>
+    </a>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EletroPro - Materiais e Ferramentas Elétricas</title>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
