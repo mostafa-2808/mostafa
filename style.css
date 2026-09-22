@@ -129,11 +129,11 @@ section {
     color: var(--primary-color);
 }
 
-/* كروت المنتجات */
+/* كروت المنتجات الشبكية */
 .produtos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
 }
 
 .produto-card {
@@ -144,52 +144,60 @@ section {
     transition: transform 0.3s;
     text-align: center;
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .produto-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
 }
 
 .produto-card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
 }
 
 .produto-info {
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .produto-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
 
 .produto-info p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #666;
-    margin-bottom: 15px;
-    height: 40px;
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
 .produto-preco {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--primary-color);
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .btn-add {
     background-color: var(--secondary-color);
     color: var(--text-dark);
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .btn-add:hover {
@@ -238,7 +246,7 @@ section {
     border-radius: 10px;
 }
 
-/* نافذة السلة (Modal) */
+/* نافذة السلة والCheckout (Modal) */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -260,11 +268,11 @@ section {
 .cart-modal {
     background: #fff;
     width: 90%;
-    max-width: 500px;
+    max-width: 480px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 25px;
     position: relative;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
 }
 
@@ -280,19 +288,19 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #eee;
 }
 
 .cart-item-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .cart-item-info img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -309,26 +317,88 @@ section {
 .cart-total {
     margin-top: 20px;
     text-align: right;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
-/* التجاوب مع الجوال والتابلت */
+/* أيقونة الواتساب العائمة */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: #ffffff;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* تحسينات التجاوب مع الجوال والتابلت */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 15px;
+        padding: 12px;
     }
     nav ul {
-        margin: 15px 0;
-        flex-wrap: wrap;
-        justify-content: center;
+        margin: 10px 0;
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+    #inicio h1 {
+        font-size: 2rem;
+    }
+    #inicio p {
+        font-size: 1rem;
     }
     .contato-container {
         grid-template-columns: 1fr;
     }
-    #inicio h1 {
-        font-size: 2rem;
- 
-   }
-   
+}
+
+/* ضبط كروت المنتجات على الشاشات الصغير جداً (الموبايل) */
+@media (max-width: 480px) {
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr); /* عرض كارتين بجانب بعض بدلاً من كارت ضخم واحد */
+        gap: 12px;
+    }
+    .produto-card img {
+        height: 120px;
+    }
+    .produto-info {
+        padding: 8px;
+    }
+    .produto-info h3 {
+        font-size: 0.9rem;
+    }
+    .produto-info p {
+        font-size: 0.75rem;
+        height: auto;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .produto-preco {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    .btn-add {
+        font-size: 0.75rem;
+        padding: 8px 5px;
+        width: 100%;
+    }
 }
