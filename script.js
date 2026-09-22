@@ -141,7 +141,6 @@ function finalizarCompra() {
     toggleCheckout();
 }
 
-// إرسال الطلب عبر Web3Forms
 // إرسال الطلب عبر FormSubmit مباشرة إلى الجيميل
 async function enviarPedido(event) {
     event.preventDefault();
@@ -153,7 +152,7 @@ async function enviarPedido(event) {
     const form = document.getElementById('checkoutForm');
     
     // ⚠️ ضع إيميلك الحقيقي (الجيميل) هنا بدلاً من الإيميل الوهمي
-    const emailDestino = "seuemail@gmail.com"; 
+    const emailDestino = "mostafaaymanabdou1@gmail.com"; 
 
     // تجميع البيانات
     const object = {
