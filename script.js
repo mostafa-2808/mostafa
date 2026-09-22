@@ -142,6 +142,7 @@ function finalizarCompra() {
 }
 
 // إرسال الطلب عبر Web3Forms
+// إرسال الطلب عبر FormSubmit مباشرة إلى الجيميل
 async function enviarPedido(event) {
     event.preventDefault();
 
@@ -151,14 +152,50 @@ async function enviarPedido(event) {
 
     const form = document.getElementById('checkoutForm');
     
+    // ⚠️ ضع إيميلك الحقيقي (الجيميل) هنا بدلاً من الإيميل الوهمي
+    const emailDestino = "seuemail@gmail.com"; 
+
+    // تجميع البيانات
     const object = {
-        access_key: form.access_key.value,
-        subject: form.subject.value,
-        nome: form.nome.value,
-        telefone: form.telefone.value,
-        endereco: form.endereco.value,
-        detalhes_do_pedido: form.detalhes_do_pedido.value
+        _subject: "🛒 Novo Pedido - EletroPro", // عنوان الإيميل الذي سيصلك
+        Nome: form.nome.value,
+        Telefone: form.telefone.value,
+        Endereco: form.endereco.value,
+        Detalhes: form.detalhes_do_pedido.value,
+        _template: "table" // تنسيق الإيميل ليصلك بشكل جدول أنيق داخل الجيميل
     };
+
+    try {
+        const response = await fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(object)
+        });
+
+        const data = await response.json();
+
+        if (data.success === "true" || response.ok) {
+            // إظهار رسالة النجاح
+            document.getElementById('checkoutFormContent').style.display = 'none';
+            document.getElementById('checkoutSuccess').style.display = 'block';
+            
+            // تصفير السلة
+            carrinho = [];
+            atualizarCarrinho();
+            form.reset();
+        } else {
+            alert("Erro ao enviar o pedido. Tente novamente.");
+        }
+    } catch (error) {
+        alert("Erro de conexão. Verifique sua internet.");
+    } finally {
+        btn.innerText = "Enviar Pedido";
+        btn.disabled = false;
+    }
+}
     
     const json = JSON.stringify(object);
 
