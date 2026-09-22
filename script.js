@@ -130,7 +130,7 @@ async function enviarPedido(event) {
             atualizarCarrinho();
             form.reset();
         } else {
-            alert("Erro ao enviar o pedido: " + (data.message || "Verifique sua Access Key no Gmail."));
+            alert("Erro ao enviar o pedido: " + (data.message || "48042b0a-9a1a-44d0-93c9-510edb95448c"));
         }
     } catch (error) {
         alert("Erro de conexão. Verifique sua internet.");
