@@ -141,7 +141,8 @@ function finalizarCompra() {
     toggleCheckout();
 }
 
-// إرسال الطلب عبر Formspree مباشرة إلى الجيميل
+// Send form using Web3Forms
+// إرسال الطلب عبر FormSubmit مباشرة إلى الجيميل
 async function enviarPedido(event) {
     event.preventDefault();
 
@@ -151,29 +152,32 @@ async function enviarPedido(event) {
 
     const form = document.getElementById('checkoutForm');
     
+    // ⚠️ ضع إيميلك الحقيقي (الجيميل) هنا بدلاً من الإيميل الوهمي
+    const emailDestino = "seuemail@gmail.com"; 
+
     // تجميع البيانات
-    const data = {
-        _subject: "🛒 Novo Pedido - EletroPro",
+    const object = {
+        _subject: "🛒 Novo Pedido - EletroPro", // عنوان الإيميل الذي سيصلك
         Nome: form.nome.value,
         Telefone: form.telefone.value,
         Endereco: form.endereco.value,
-        Detalhes: form.detalhes_do_pedido.value
+        Detalhes: form.detalhes_do_pedido.value,
+        _template: "table" // تنسيق الإيميل ليصلك بشكل جدول أنيق داخل الجيميل
     };
 
-    // ⚠️ استبدل الايميل هنا بايميلك الحقيقي
-    const emailDestino = "seuemail@gmail.com"; 
-    
     try {
-        const response = await fetch(`https://formspree.io/${emailDestino}`, {
+        const response = await fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
             method: "POST",
             headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(object)
         });
 
-        if (response.ok) {
+        const data = await response.json();
+
+        if (data.success === "true" || response.ok) {
             // إظهار رسالة النجاح
             document.getElementById('checkoutFormContent').style.display = 'none';
             document.getElementById('checkoutSuccess').style.display = 'block';
@@ -192,6 +196,38 @@ async function enviarPedido(event) {
         btn.disabled = false;
     }
 }
+    
+    const json = JSON.stringify(object);
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: json
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            document.getElementById('checkoutFormContent').style.display = 'none';
+            document.getElementById('checkoutSuccess').style.display = 'block';
+            
+            carrinho = [];
+            atualizarCarrinho();
+            form.reset();
+        } else {
+            alert("Erro ao enviar o pedido: " + (data.message || "Verifique sua Access Key."));
+        }
+    } catch (error) {
+        alert("Erro de conexão. Verifique sua internet.");
+    } finally {
+        btn.innerText = "Enviar Pedido";
+        btn.disabled = false;
+    }
+
 
 function fecharEConcluir() {
     document.getElementById('checkoutFormContent').style.display = 'block';
@@ -205,3 +241,11 @@ function fecharEConcluir() {
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProdutos(listaProdutos);
 });
+
+
+
+
+
+
+
+
