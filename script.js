@@ -1,4 +1,4 @@
-// قائمة المنتجات
+// Array to store product list
 const listaProdutos = [
     {
         id: 1,
@@ -36,13 +36,13 @@ const listaProdutos = [
 
 let carrinho = [];
 
-// عرض المنتجات ديناميكياً
+// Display products dynamically
 function renderizarProdutos(produtos) {
     const grid = document.getElementById('produtosGrid');
     grid.innerHTML = '';
 
     if (produtos.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666; font-size: 1rem; padding: 20px 0;">Nenhum produto encontrado com essa palavra.</p>';
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666; font-size: 1.1rem;">Nenhum produto encontrado com essa palavra.</p>';
         return;
     }
 
@@ -61,7 +61,7 @@ function renderizarProdutos(produtos) {
     });
 }
 
-// دالة البحث المباشر
+// Live search filter function
 function filtrarProdutos() {
     const termo = document.getElementById('searchInput').value.toLowerCase();
     const produtosFiltrados = listaProdutos.filter(produto => 
@@ -70,7 +70,7 @@ function filtrarProdutos() {
     renderizarProdutos(produtosFiltrados);
 }
 
-// إدارة السلة
+// Cart functions
 function toggleCart() {
     const modal = document.getElementById('cartModal');
     modal.classList.toggle('active');
@@ -105,8 +105,8 @@ function atualizarCarrinho() {
                     <div class="cart-item-info">
                         <img src="${item.imagem}" alt="${item.nome}">
                         <div>
-                            <h4 style="font-size: 0.85rem;">${item.nome}</h4>
-                            <p style="color: var(--primary-color); font-weight: bold; font-size: 0.85rem;">R$ ${item.preco.toFixed(2)}</p>
+                            <h4 style="font-size: 0.9rem;">${item.nome}</h4>
+                            <p style="color: var(--primary-color); font-weight: bold;">R$ ${item.preco.toFixed(2)}</p>
                         </div>
                     </div>
                     <button class="btn-remove" onclick="removeFromCart(${index})">Remover</button>
@@ -141,6 +141,8 @@ function finalizarCompra() {
     toggleCheckout();
 }
 
+// Send form using Web3Forms
+// إرسال الطلب عبر FormSubmit مباشرة إلى الجيميل
 // إرسال الطلب عبر Formspree مباشرة إلى الجيميل
 async function enviarPedido(event) {
     event.preventDefault();
@@ -160,7 +162,8 @@ async function enviarPedido(event) {
         Detalhes: form.detalhes_do_pedido.value
     };
 
-    const emailDestino = "mostafaaymanabdou1@gmail.com"; 
+    // ⚠️ استبدل الايميل هنا بايميلك الحقيقي
+    const emailDestino = "seuemail@gmail.com"; 
     
     // استخدام Formspree لارسال البيانات كـ JSON
     try {
@@ -192,7 +195,6 @@ async function enviarPedido(event) {
         btn.disabled = false;
     }
 }
-
     try {
         const response = await fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
             method: "POST",
@@ -255,7 +257,7 @@ async function enviarPedido(event) {
         btn.innerText = "Enviar Pedido";
         btn.disabled = false;
     }
-}
+
 
 function fecharEConcluir() {
     document.getElementById('checkoutFormContent').style.display = 'block';
@@ -265,7 +267,7 @@ function fecharEConcluir() {
     modal.classList.remove('active');
 }
 
-// تشغيل المنتجات عند التحميل
+// Render initial products on page load
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProdutos(listaProdutos);
 });
