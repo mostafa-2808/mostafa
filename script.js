@@ -141,7 +141,7 @@ function finalizarCompra() {
     toggleCheckout();
 }
 
-// إرسال الطلب عبر FormSubmit مباشرة إلى الجيميل
+// إرسال الطلب عبر Formspree مباشرة إلى الجيميل
 async function enviarPedido(event) {
     event.preventDefault();
 
@@ -151,18 +151,47 @@ async function enviarPedido(event) {
 
     const form = document.getElementById('checkoutForm');
     
-    // ⚠️ ضع إيميلك الحقيقي (الجيميل) هنا بدلاً من الإيميل الوهمي
-    const emailDestino = "mostafaaymanabdou1@gmail.com"; 
-
     // تجميع البيانات
-    const object = {
-        _subject: "🛒 Novo Pedido - EletroPro", // عنوان الإيميل الذي سيصلك
+    const data = {
+        _subject: "🛒 Novo Pedido - EletroPro", // عنوان الإيميل
         Nome: form.nome.value,
         Telefone: form.telefone.value,
         Endereco: form.endereco.value,
-        Detalhes: form.detalhes_do_pedido.value,
-        _template: "table" // تنسيق الإيميل ليصلك بشكل جدول أنيق داخل الجيميل
+        Detalhes: form.detalhes_do_pedido.value
     };
+
+    const emailDestino = "mostafaaymanabdou1@gmail.com"; 
+    
+    // استخدام Formspree لارسال البيانات كـ JSON
+    try {
+        const response = await fetch(`https://formspree.io/${emailDestino}`, {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            // إظهار رسالة النجاح
+            document.getElementById('checkoutFormContent').style.display = 'none';
+            document.getElementById('checkoutSuccess').style.display = 'block';
+            
+            // تصفير السلة
+            carrinho = [];
+            atualizarCarrinho();
+            form.reset();
+        } else {
+            alert("Erro ao enviar o pedido. Tente novamente.");
+        }
+    } catch (error) {
+        alert("Erro de conexão. Verifique sua internet.");
+    } finally {
+        btn.innerText = "Enviar Pedido";
+        btn.disabled = false;
+    }
+}
 
     try {
         const response = await fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
