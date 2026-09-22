@@ -236,16 +236,9 @@ function fecharEConcluir() {
     const modal = document.getElementById('checkoutModal');
     modal.classList.remove('active');
 }
-
 // Render initial products on page load
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProdutos(listaProdutos);
 });
-
-
-
-
-
-
 
 
