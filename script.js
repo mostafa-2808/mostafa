@@ -38,8 +38,8 @@ const listaProdutos = [
         nome: "Esmerilhadeira Angular 850W",
         descricao: "Ideal para cortes, desbastes e polimentos em metais e alvenaria.",
         preco: 259.90,
-        imagem: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500&q=80",
-        thumb: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7G4Yx_gcFgQm-41zOAgA62IpQmMt7aKox_vDuARh-bQ&s=10",
+        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7G4Yx_gcFgQm-41zOAgA62IpQmMt7aKox_vDuARh-bQ&s=10"
     },
     {
         id: 6,
