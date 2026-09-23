@@ -46,32 +46,32 @@ const listaProdutos = [
         nome: "Soprador Térmico Profissional",
         descricao: "Temperatura ajustável de 50°C a 600°C. Acompanha 4 bicos variados.",
         preco: 145.00,
-        imagem: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=500&q=80",
-        thumb: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCESotf_iGg4LdqTzOXx-F0o1u5oBwQ6dTfQjUiWRsoQ&s=10",
+        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCESotf_iGg4LdqTzOXx-F0o1u5oBwQ6dTfQjUiWRsoQ&s=10"
     },
     {
         id: 7,
         nome: "Trena a Laser 50 Metros",
         descricao: "Medição rápida e precisa com cálculo automático de área e volume.",
         preco: 189.90,
-        imagem: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=500&q=80",
-        thumb: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNdN5IyUeDOGEXWne6FA1fn8p6E2OZuaicW_z9JVCm1A&s=10",
+        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNdN5IyUeDOGEXWne6FA1fn8p6E2OZuaicW_z9JVCm1A&s=10"
     },
     {
         id: 8,
         nome: "Jogo de Chaves de Fenda Isoladas",
         descricao: "Kit com 6 peças isoladas para 1000V. Ponta magnética e cabo ergonômico.",
         preco: 75.50,
-        imagem: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=500&q=80",
-        thumb: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzm-0FeNqvqY-nzDIv7YASA9SfW1kwBbw7SULiT5a1w&s=10",
+        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzm-0FeNqvqY-nzDIv7YASA9SfW1kwBbw7SULiT5a1w&s=10"
     },
     {
         id: 9,
         nome: "Serra Circular de Bancada",
         descricao: "Motor potente para cortes precisos e retos em diversos tipos de madeira.",
         preco: 899.00,
-        imagem: "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=500&q=80",
-        thumb: "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVscM9ASoL0WbSFUzUfL33sM1I1gS9ZnppgjQkJM5aaA&s=10",
+            thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVscM9ASoL0WbSFUzUfL33sM1I1gS9ZnppgjQkJM5aaA&s=10"
     }
 ];
 
