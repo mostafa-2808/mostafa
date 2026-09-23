@@ -31,6 +31,47 @@ const listaProdutos = [
         preco: 185.00,
         imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3X3N6_GOt-sVf0rKX-iI2-1GY3twTc-xuUmX9mRSzWw&s=10",
         thumb: "https://images.unsplash.com/photo-1581783342308-f792db80eb81?auto=format&fit=crop&w=50px&q=80"
+    },
+    // --- المنتجات الـ 5 الجديدة ---
+    {
+        id: 5,
+        nome: "Esmerilhadeira Angular 850W",
+        descricao: "Ideal para cortes, desbastes e polimentos em metais e alvenaria.",
+        preco: 259.90,
+        imagem: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500&q=80",
+        thumb: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=50px&q=80"
+    },
+    {
+        id: 6,
+        nome: "Soprador Térmico Profissional",
+        descricao: "Temperatura ajustável de 50°C a 600°C. Acompanha 4 bicos variados.",
+        preco: 145.00,
+        imagem: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=500&q=80",
+        thumb: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=50px&q=80"
+    },
+    {
+        id: 7,
+        nome: "Trena a Laser 50 Metros",
+        descricao: "Medição rápida e precisa com cálculo automático de área e volume.",
+        preco: 189.90,
+        imagem: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=500&q=80",
+        thumb: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=50px&q=80"
+    },
+    {
+        id: 8,
+        nome: "Jogo de Chaves de Fenda Isoladas",
+        descricao: "Kit com 6 peças isoladas para 1000V. Ponta magnética e cabo ergonômico.",
+        preco: 75.50,
+        imagem: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=500&q=80",
+        thumb: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=50px&q=80"
+    },
+    {
+        id: 9,
+        nome: "Serra Circular de Bancada",
+        descricao: "Motor potente para cortes precisos e retos em diversos tipos de madeira.",
+        preco: 899.00,
+        imagem: "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=500&q=80",
+        thumb: "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=50px&q=80"
     }
 ];
 
@@ -141,8 +182,7 @@ function finalizarCompra() {
     toggleCheckout();
 }
 
-// Send form using Web3Forms
-// إرسال الطلب عبر FormSubmit مباشرة إلى الجيميل
+// Send form using FormSubmit (GMAIL)
 async function enviarPedido(event) {
     event.preventDefault();
 
@@ -152,8 +192,7 @@ async function enviarPedido(event) {
 
     const form = document.getElementById('checkoutForm');
     
-    // ⚠️ ضع إيميلك الحقيقي (الجيميل) هنا بدلاً من الإيميل الوهمي
-    const emailDestino = "seuemail@gmail.com"; 
+    const emailDestino = "mostafaayman2810@gmail.com"; 
 
     // تجميع البيانات
     const object = {
@@ -196,38 +235,6 @@ async function enviarPedido(event) {
         btn.disabled = false;
     }
 }
-    
-    const json = JSON.stringify(object);
-
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: json
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            document.getElementById('checkoutFormContent').style.display = 'none';
-            document.getElementById('checkoutSuccess').style.display = 'block';
-            
-            carrinho = [];
-            atualizarCarrinho();
-            form.reset();
-        } else {
-            alert("Erro ao enviar o pedido: " + (data.message || "Verifique sua Access Key."));
-        }
-    } catch (error) {
-        alert("Erro de conexão. Verifique sua internet.");
-    } finally {
-        btn.innerText = "Enviar Pedido";
-        btn.disabled = false;
-    }
-
 
 function fecharEConcluir() {
     document.getElementById('checkoutFormContent').style.display = 'block';
@@ -236,9 +243,8 @@ function fecharEConcluir() {
     const modal = document.getElementById('checkoutModal');
     modal.classList.remove('active');
 }
+
 // Render initial products on page load
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProdutos(listaProdutos);
 });
-
-
