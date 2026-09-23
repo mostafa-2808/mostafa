@@ -184,16 +184,75 @@ function finalizarCompra() {
 
 // Send form using FormSubmit (GMAIL)
 async function enviarPedido(event) {
-    event.preventDefault();
+    event.preventDefault(); // لمنع إعادة تحميل الصفحة
 
-    const btn = document.getElementById('btnEnviar');
-    btn.innerText = "Enviando...";
+    // التحكم في زر الإرسال
+    const btn = document.getElementById('btnEnviar') || document.querySelector('button[type="submit"]');
+    const textoOriginal = btn.innerText;
+    btn.innerText = "Enviando..."; 
     btn.disabled = true;
 
-    const form = document.getElementById('checkoutForm');
+    const form = document.getElementById('checkoutForm') || event.target;
     
-    const emailDestino = "mostafaayman2810@gmail.com"; 
+    // تجهيز المنتجات لتظهر بشكل منسق وواضح في الإيميل الذي سيصلك
+    let produtosCart = "";
+    if (typeof carrinho !== 'undefined' && carrinho.length > 0) {
+        produtosCart = carrinho.map((item, index) => `${index + 1}. ${item.nome} - R$ ${item.preco}`).join("\n");
+    } else {
+        produtosCart = "Nenhum produto no carrinho";
+    }
 
+    // تجميع بيانات العميل مع المنتجات المشتراة
+    const dadosPedido = {
+        Nome: form.nome ? form.nome.value : "",
+        Telefone: form.telefone ? form.telefone.value : "",
+        Endereco: form.endereco ? form.endereco.value : "",
+        Detalhes: form.detalhes_do_pedido ? form.detalhes_do_pedido.value : "",
+        Produtos_Comprados: produtosCart // المنتجات التي في السلة
+    };
+
+    try {
+        // إرسال البيانات إلى رابط Formspree الخاص بك
+        const response = await fetch("https://formspree.io/f/mnpnvrdy", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(dadosPedido)
+        });
+
+        // إذا تم الإرسال بنجاح
+        if (response.ok) {
+            alert("Pedido enviado com sucesso! Entraremos em contato em breve.");
+            
+            // تصفير السلة وتحديثها
+            if (typeof carrinho !== 'undefined') carrinho = [];
+            if (typeof atualizarCarrinho === 'function') atualizarCarrinho();
+            form.reset();
+            
+            // إخفاء نافذة إتمام الطلب إن وجدت
+            const formContent = document.getElementById('checkoutFormContent');
+            const successMsg = document.getElementById('checkoutSuccess');
+            if(formContent && successMsg) {
+                formContent.style.display = 'none';
+                successMsg.style.display = 'block';
+            }
+            
+        } else {
+            alert("Erro ao enviar o pedido. Tente novamente.");
+        }
+    } catch (error) {
+        console.error("Erro:", error);
+        alert("Erro de conexão. Verifique sua internet.");
+    } finally {
+        // إعادة الزر لحالته الطبيعية
+        if (btn) {
+            btn.innerText = textoOriginal;
+            btn.disabled = false;
+        }
+    }
+}
     // تجميع البيانات
     const object = {
         _subject: "🛒 Novo Pedido - EletroPro", // عنوان الإيميل الذي سيصلك
