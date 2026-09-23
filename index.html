@@ -5,22 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EletroPro - Materiais e Ferramentas Elétricas</title>
     
-    <!-- خطوط جوجل -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- ربط ملف CSS الخارجي -->
+    <!-- CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- شريط التنقل -->
+    <!-- Header -->
     <header>
-        <div class="header-top">
-            <a href="#inicio" class="logo">⚡ EletroPro</a>
-            <div class="cart-icon" onclick="toggleCart()">
-                🛒 Carrinho (<span id="cart-count">0</span>)
-            </div>
-        </div>
+        <a href="#inicio" class="logo">⚡ EletroPro</a>
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
@@ -29,36 +24,39 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 Carrinho (<span id="cart-count">0</span>)
+        </div>
     </header>
 
-    <!-- الصفحة الرئيسية -->
+    <!-- Hero Section -->
     <section id="inicio">
         <h1>Energia e Precisão para o Seu Projeto</h1>
         <p>Descubra a melhor seleção de ferramentas e materiais elétricos com qualidade profissional e preços imbatíveis.</p>
         <a href="#produtos" class="btn-primary">Ver Produtos</a>
     </section>
 
-    <!-- صفحة المنتجات -->
+    <!-- Products Section -->
     <section id="produtos">
         <h2 class="section-title">Nossos Produtos</h2>
         
-        <!-- حقل البحث -->
+        <!-- Search Bar -->
         <div class="search-container">
             <input type="text" id="searchInput" oninput="filtrarProdutos()" placeholder="Buscar produto pelo nome...">
         </div>
 
         <div class="produtos-grid" id="produtosGrid">
-            <!-- يتم تحميل المنتجات تلقائياً عبر السكربت -->
+            <!-- Products will be rendered dynamically by JavaScript -->
         </div>
     </section>
 
-    <!-- صفحة من نحن -->
+    <!-- About Section -->
     <section id="sobre">
         <h2 class="section-title">Sobre Nós</h2>
         <p>A <strong>EletroPro</strong> é líder no mercado de distribuição de materiais elétricos e ferramentas de alta performance. Com mais de 10 anos de experiência, nosso compromisso é oferecer produtos de qualidade internacional, garantindo a segurança e o sucesso de engenheiros, eletricistas e entusiastas do "faça você mesmo" em todo o Brasil.</p>
     </section>
 
-    <!-- صفحة التواصل -->
+    <!-- Contact Section -->
     <section id="contato">
         <h2 class="section-title">Fale Conosco</h2>
         <div class="contato-container">
@@ -80,7 +78,7 @@
         </div>
     </section>
 
-    <!-- نافذة السلة -->
+    <!-- Cart Modal -->
     <div class="modal-overlay" id="cartModal">
         <div class="cart-modal">
             <span class="close-btn" onclick="toggleCart()">&times;</span>
@@ -96,7 +94,7 @@
         </div>
     </div>
 
-    <!-- نافذة الشراء / النماذج -->
+    <!-- Checkout Modal -->
     <div class="modal-overlay" id="checkoutModal">
         <div class="cart-modal">
             <span class="close-btn" onclick="fecharEConcluir()">&times;</span>
@@ -138,14 +136,14 @@
         </div>
     </div>
 
-    <!-- زر واتساب العائم -->
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" class="whatsapp-float" title="Contato via WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.57 4.186 1.564 5.95l-1.594 5.823 5.961-1.56c1.696.92 3.633 1.442 5.669 1.442 6.627 0 12-5.373 12-12s-5.373-12-12-12zm0 21.82c-1.782 0-3.486-.474-4.97-1.298l-.356-.197-3.692.966.984-3.593-.223-.355c-.933-1.488-1.425-3.218-1.425-5.013 0-5.187 4.223-9.41 9.41-9.41 5.187 0 9.41 4.223 9.41 9.41 0 5.188-4.223 9.41-9.41 9.41z"/>
         </svg>
     </a>
 
-    <!-- ربط ملف JavaScript الخارجي -->
+    <!-- JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>
