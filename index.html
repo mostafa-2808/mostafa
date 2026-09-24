@@ -16,16 +16,23 @@
     <!-- Header -->
     <header>
         <a href="#inicio" class="logo">⚡ EletroPro</a>
-        <nav>
+        
+        <nav id="navMenu">
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#inicio" onclick="toggleMenu()">Início</a></li>
+                <li><a href="#produtos" onclick="toggleMenu()">Produtos</a></li>
+                <li><a href="#sobre" onclick="toggleMenu()">Sobre Nós</a></li>
+                <li><a href="#contato" onclick="toggleMenu()">Contato</a></li>
             </ul>
         </nav>
-        <div class="cart-icon" onclick="toggleCart()">
-            🛒 Carrinho (<span id="cart-count">0</span>)
+
+        <div class="header-right">
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 Carrinho (<span id="cart-count">0</span>)
+            </div>
+            <div class="menu-btn" onclick="toggleMenu()">
+                &#9776; 
+            </div>
         </div>
     </header>
 
@@ -103,8 +110,6 @@
                 <h2 style="margin-bottom: 20px; color: var(--primary-color);">Dados para Entrega</h2>
                 
                 <form id="checkoutForm" onsubmit="enviarPedido(event)">
-                    <input type="hidden" name="access_key" value="48042b0a-9a1a-44d0-93c9-510edb95448c">
-                    <input type="hidden" name="subject" value="Novo Pedido - EletroPro">
                     <input type="hidden" name="detalhes_do_pedido" id="pedidoInput">
 
                     <div style="margin-bottom: 15px; text-align: left;">
