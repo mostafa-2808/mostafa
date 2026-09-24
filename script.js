@@ -3,81 +3,92 @@ const listaProdutos = [
     {
         id: 1,
         nome: "Furadeira de Impacto Profissional",
-        descricao: "Potência de 800W, ideal para perfurações em concreto e madeira.",
+        descricao: "Potência de 800W, ideal para perfurações em concreto e madeira. Alta durabilidade e controle de velocidade variável.",
         preco: 349.90,
-        imagem: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=500&q=80",
+        imagem: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
         thumb: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 2,
         nome: "Multímetro Digital Smart",
-        descricao: "Medição precisa de tensão, corrente e resistência com visor LCD.",
+        descricao: "Medição precisa de tensão, corrente e resistência com visor LCD retroiluminado e seleção automática de escala.",
         preco: 129.50,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMPqSjRtS-kj1dFXfWJVogJXkvG-MUbJM7vg1FS3uBPw&s=10",
-        thumb: "https://images.unsplash.com/photo-1580983584852-5207044001cb?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://images.unsplash.com/photo-1588524451241-11d73919e13a?auto=format&fit=crop&w=800&q=80",
+        thumb: "https://images.unsplash.com/photo-1588524451241-11d73919e13a?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 3,
         nome: "Parafusadeira a Bateria 20V",
-        descricao: "Acompanha 2 baterias de lítio e maleta com acessórios.",
+        descricao: "Acompanha 2 baterias de lítio e maleta com acessórios. Torque ajustável com 18 níveis.",
         preco: 499.00,
-        imagem: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=500&q=80",
+        imagem: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80",
         thumb: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 4,
         nome: "Kit Alicates Isolados 1000V",
-        descricao: "Segurança máxima para eletricistas. Contém 3 peças essenciais.",
+        descricao: "Segurança máxima para eletricistas. Contém 3 peças essenciais com cabo emborrachado e certificado VDE.",
         preco: 185.00,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3X3N6_GOt-sVf0rKX-iI2-1GY3twTc-xuUmX9mRSzWw&s=10",
+        imagem: "https://images.unsplash.com/photo-1581783342308-f792db80eb81?auto=format&fit=crop&w=800&q=80",
         thumb: "https://images.unsplash.com/photo-1581783342308-f792db80eb81?auto=format&fit=crop&w=50px&q=80"
     },
-    // --- المنتجات الـ 5 الجديدة ---
     {
         id: 5,
         nome: "Esmerilhadeira Angular 850W",
-        descricao: "Ideal para cortes, desbastes e polimentos em metais e alvenaria.",
+        descricao: "Ideal para cortes, desbastes e polimentos em metais e alvenaria. Design compacto e ergonômico.",
         preco: 259.90,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7G4Yx_gcFgQm-41zOAgA62IpQmMt7aKox_vDuARh-bQ&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7G4Yx_gcFgQm-41zOAgA62IpQmMt7aKox_vDuARh-bQ&s=10"
+        imagem: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        thumb: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 6,
         nome: "Soprador Térmico Profissional",
-        descricao: "Temperatura ajustável de 50°C a 600°C. Acompanha 4 bicos variados.",
+        descricao: "Temperatura ajustável de 50°C a 600°C. Acompanha 4 bicos variados para moldar e remover tintas.",
         preco: 145.00,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCESotf_iGg4LdqTzOXx-F0o1u5oBwQ6dTfQjUiWRsoQ&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCESotf_iGg4LdqTzOXx-F0o1u5oBwQ6dTfQjUiWRsoQ&s=10"
+        imagem: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=800&q=80",
+        thumb: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 7,
         nome: "Trena a Laser 50 Metros",
-        descricao: "Medição rápida e precisa com cálculo automático de área e volume.",
+        descricao: "Medição rápida e precisa com cálculo automático de área e volume. Memória para últimas 20 medições.",
         preco: 189.90,
-        imagem: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTJfiSrRrQVXd2L1pSozXUBJyLASDgl9E3SQ-AaFlCKKl3UDy_vsuptjGEAB7xEL8XKLlCiaGyJXMZUH6tRugLWV_cb5j6B8052GpeHtt8UanxnyPTGbo-twStsmGfahe5sOcSoS49A3Q&usqp=CAc",
-        thumb: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTJfiSrRrQVXd2L1pSozXUBJyLASDgl9E3SQ-AaFlCKKl3UDy_vsuptjGEAB7xEL8XKLlCiaGyJXMZUH6tRugLWV_cb5j6B8052GpeHtt8UanxnyPTGbo-twStsmGfahe5sOcSoS49A3Q&usqp=CAc"
+        imagem: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80",
+        thumb: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 8,
         nome: "Jogo de Chaves de Fenda Isoladas",
-        descricao: "Kit com 6 peças isoladas para 1000V. Ponta magnética e cabo ergonômico.",
+        descricao: "Kit com 6 peças isoladas para 1000V. Ponta magnética e cabo ergonômico antiderrapante.",
         preco: 75.50,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzm-0FeNqvqY-nzDIv7YASA9SfW1kwBbw7SULiT5a1w&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzm-0FeNqvqY-nzDIv7YASA9SfW1kwBbw7SULiT5a1w&s=10"
+        imagem: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=800&q=80",
+        thumb: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=50px&q=80"
     },
     {
         id: 9,
         nome: "Serra Circular de Bancada",
-        descricao: "Motor potente para cortes precisos e retos em diversos tipos de madeira.",
+        descricao: "Motor potente para cortes precisos e retos em diversos tipos de madeira. Inclui guia lateral e régua.",
         preco: 899.00,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVscM9ASoL0WbSFUzUfL33sM1I1gS9ZnppgjQkJM5aaA&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVscM9ASoL0WbSFUzUfL33sM1I1gS9ZnppgjQkJM5aaA&s=10"
+        imagem: "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=800&q=80",
+        thumb: "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=50px&q=80"
     }
 ];
 
 let carrinho = [];
 
-// Display products dynamically
+// إشعار الإضافة للسلة
+function mostrarNotificacao() {
+    const toast = document.createElement('div');
+    toast.innerText = '✅ Produto adicionado ao carrinho!';
+    toast.style.cssText = 'position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #4CAF50; color: white; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 16px; font-weight: bold; z-index: 9999; transition: opacity 0.5s ease; opacity: 1;';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 500);
+    }, 2500);
+}
+
+// عرض المنتجات مع خاصية الضغط لفتح صفحة/نافذة التفاصيل
 function renderizarProdutos(produtos) {
     const grid = document.getElementById('produtosGrid');
     grid.innerHTML = '';
@@ -90,19 +101,46 @@ function renderizarProdutos(produtos) {
     produtos.forEach(produto => {
         grid.innerHTML += `
             <div class="produto-card">
-                <img src="${produto.imagem}" alt="${produto.nome}">
+                <img src="${produto.imagem}" alt="${produto.nome}" onclick="abrirModalProduto(${produto.id})" style="cursor: pointer;">
                 <div class="produto-info">
-                    <h3>${produto.nome}</h3>
+                    <h3 onclick="abrirModalProduto(${produto.id})" style="cursor: pointer; color: var(--primary-color);">${produto.nome}</h3>
                     <p>${produto.descricao}</p>
                     <span class="produto-preco">R$ ${produto.preco.toFixed(2)}</span>
-                    <button class="btn-add" onclick="addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb}')">Adicionar ao Carrinho</button>
+                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb}')">Adicionar ao Carrinho</button>
                 </div>
             </div>
         `;
     });
 }
 
-// Live search filter function
+// فتح نافذة تفاصيل المنتج وصورته المكبرة
+function abrirModalProduto(id) {
+    const produto = listaProdutos.find(p => p.id === id);
+    if (!produto) return;
+
+    const content = document.getElementById('productDetailContent');
+    content.innerHTML = `
+        <div style="text-align: center;">
+            <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+            <h2 style="color: var(--primary-color); margin-bottom: 10px; font-size: 1.4rem;">${produto.nome}</h2>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem; text-align: left;">${produto.descricao}</p>
+            <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 20px;">
+                R$ ${produto.preco.toFixed(2)}
+            </div>
+            <button class="btn-add" style="width: 100%; padding: 12px; font-size: 1.05rem;" onclick="addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb}'); fecharModalProduto();">
+                🛒 Adicionar ao Carrinho
+            </button>
+        </div>
+    `;
+
+    document.getElementById('productModal').classList.add('active');
+}
+
+// إغلاق نافذة التفاصيل
+function fecharModalProduto() {
+    document.getElementById('productModal').classList.remove('active');
+}
+
 function filtrarProdutos() {
     const termo = document.getElementById('searchInput').value.toLowerCase();
     const produtosFiltrados = listaProdutos.filter(produto => 
@@ -111,7 +149,6 @@ function filtrarProdutos() {
     renderizarProdutos(produtosFiltrados);
 }
 
-// Cart functions
 function toggleCart() {
     const modal = document.getElementById('cartModal');
     modal.classList.toggle('active');
@@ -120,6 +157,7 @@ function toggleCart() {
 function addToCart(nome, preco, imagem) {
     carrinho.push({ nome, preco, imagem });
     atualizarCarrinho();
+    mostrarNotificacao();
 }
 
 function removeFromCart(index) {
@@ -182,56 +220,32 @@ function finalizarCompra() {
     toggleCheckout();
 }
 
-// Send form using FormSubmit (GMAIL)
-const response = await fetch("https://formspree.io/f/mnpnvrdy", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    },
-    body: JSON.stringify(object)
-});
+function enviarPedido(event) {
+    event.preventDefault();
 
-    // تجميع البيانات
-    const object = {
-        _subject: "🛒 Novo Pedido - EletroPro", // عنوان الإيميل الذي سيصلك
-        Nome: form.nome.value,
-        Telefone: form.telefone.value,
-        Endereco: form.endereco.value,
-        Detalhes: form.detalhes_do_pedido.value,
-        _template: "table" // تنسيق الإيميل ليصلك بشكل جدول أنيق داخل الجيميل
-    };
+    const form = document.getElementById('checkoutForm');
+    const nome = form.nome.value;
+    const telefone = form.telefone.value;
+    const endereco = form.endereco.value;
+    const detalhes = document.getElementById('pedidoInput').value;
 
-    try {
-        const response = await fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(object)
-        });
+    let mensagem = `🛒 *Novo Pedido - EletroPro*\n\n`;
+    mensagem += `👤 *Nome:* ${nome}\n`;
+    mensagem += `📞 *Telefone:* ${telefone}\n`;
+    mensagem += `📍 *Endereço:* ${endereco}\n\n`;
+    mensagem += detalhes;
 
-        const data = await response.json();
+    const numeroWhatsApp = "5511999999999"; 
 
-        if (data.success === "true" || response.ok) {
-            // إظهار رسالة النجاح
-            document.getElementById('checkoutFormContent').style.display = 'none';
-            document.getElementById('checkoutSuccess').style.display = 'block';
-            
-            // تصفير السلة
-            carrinho = [];
-            atualizarCarrinho();
-            form.reset();
-        } else {
-            alert("Erro ao enviar o pedido. Tente novamente.");
-        }
-    } catch (error) {
-        alert("Erro de conexão. Verifique sua internet.");
-    } finally {
-        btn.innerText = "Enviar Pedido";
-        btn.disabled = false;
-    }
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+
+    document.getElementById('checkoutFormContent').style.display = 'none';
+    document.getElementById('checkoutSuccess').style.display = 'block';
+    
+    carrinho = [];
+    atualizarCarrinho();
+    form.reset();
 }
 
 function fecharEConcluir() {
@@ -242,7 +256,6 @@ function fecharEConcluir() {
     modal.classList.remove('active');
 }
 
-// Render initial products on page load
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProdutos(listaProdutos);
 });
