@@ -13,8 +13,8 @@ const listaProdutos = [
         nome: "Multímetro Digital Smart",
         descricao: "Medição precisa de tensão, corrente e resistência com visor LCD retroiluminado e seleção automática de escala.",
         preco: 129.50,
-        imagem: "https://images.unsplash.com/photo-1588524451241-11d73919e13a?auto=format&fit=crop&w=800&q=80",
-        thumb: "https://images.unsplash.com/photo-1588524451241-11d73919e13a?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMPqSjRtS-kj1dFXfWJVogJXkvG-MUbJM7vg1FS3uBPw&s=10",
+        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMPqSjRtS-kj1dFXfWJVogJXkvG-MUbJM7vg1FS3uBPw&s=10"
     },
     {
         id: 3,
@@ -26,11 +26,11 @@ const listaProdutos = [
     },
     {
         id: 4,
-        nome: "Kit Alicates Isolados 1000V",
+        nome: "Kit Alicates Isolados ",
         descricao: "Segurança máxima para eletricistas. Contém 3 peças essenciais com cabo emborrachado e certificado VDE.",
         preco: 185.00,
-        imagem: "https://images.unsplash.com/photo-1581783342308-f792db80eb81?auto=format&fit=crop&w=800&q=80",
-        thumb: "https://images.unsplash.com/photo-1581783342308-f792db80eb81?auto=format&fit=crop&w=50px&q=80"
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwECMfBbYtFT_m3cxvNjv8MaGFCnKt9RQsTlTF5xaUtw&s=10",
+        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwECMfBbYtFT_m3cxvNjv8MaGFCnKt9RQsTlTF5xaUtw&s=10"
     },
     {
         id: 5,
