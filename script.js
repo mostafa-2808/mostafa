@@ -1,72 +1,33 @@
-// Array to store product list
-const listaProdutos = [
-    {
-        id: 1,
-        nome: "Furadeira de Impacto Profissional",
-        descricao: "Potência de 800W, ideal para perfurações em concreto e madeira. Alta durabilidade e controle de velocidade variável.",
-        preco: 349.90,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBWtgdMChdqqEfhT327hbISMimyV9yXjtXX7NxO-gXuw&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBWtgdMChdqqEfhT327hbISMimyV9yXjtXX7NxO-gXuw&s=10"
-    },
-    {
-        id: 2,
-        nome: "Multímetro Digital Smart",
-        descricao: "Medição precisa de tensão, corrente e resistência com visor LCD retroiluminado e seleção automática de escala.",
-        preco: 129.50,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMPqSjRtS-kj1dFXfWJVogJXkvG-MUbJM7vg1FS3uBPw&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMPqSjRtS-kj1dFXfWJVogJXkvG-MUbJM7vg1FS3uBPw&s=10"
-    },
-    {
-        id: 3,
-        nome: "Parafusadeira a Bateria 20V",
-        descricao: "Acompanha 2 baterias de lítio e maleta com acessórios. Torque ajustável com 18 níveis.",
-        preco: 499.00,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt5Szh7qVjvSRpUIZPi4ZK0i6hxj1dnLCNOgOb2mdskg&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt5Szh7qVjvSRpUIZPi4ZK0i6hxj1dnLCNOgOb2mdskg&s=10"
-    },
-    {
-        id: 4,
-        nome: "Kit Alicates Isolados ",
-        descricao: "Segurança máxima para eletricistas. Contém 3 peças essenciais com cabo emborrachado e certificado VDE.",
-        preco: 185.00,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwECMfBbYtFT_m3cxvNjv8MaGFCnKt9RQsTlTF5xaUtw&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwECMfBbYtFT_m3cxvNjv8MaGFCnKt9RQsTlTF5xaUtw&s=10"
-    },
-    {
-        id: 5,
-        nome: "Esmerilhadeira Angular 850W",
-        descricao: "Ideal para cortes, desbastes e polimentos em metais e alvenaria. Design compacto e ergonômico.",
-        preco: 259.90,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQujUJsgyLBufidBG65HD--8IHjj6H5Q5sdq_Z2gPT7XA&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQujUJsgyLBufidBG65HD--8IHjj6H5Q5sdq_Z2gPT7XA&s=10"
-    },
-    {
-        id: 6,
-        nome: "Soprador Térmico Profissional",
-        descricao: "Temperatura ajustável de 50°C a 600°C. Acompanha 4 bicos variados para moldar e remover tintas.",
-        preco: 145.00,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc2e37v3o4QsXcXzqZmFQKatvgCxTlJhjaKf0cOZ1_vQ&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc2e37v3o4QsXcXzqZmFQKatvgCxTlJhjaKf0cOZ1_vQ&s=10"
-    },
-    {
-        id: 7,
-        nome: "Trena a Laser 50 Metros",
-        descricao: "Medição rápida e precisa com cálculo automático de área e volume. Memória para últimas 20 medições.",
-        preco: 189.90,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNdN5IyUeDOGEXWne6FA1fn8p6E2OZuaicW_z9JVCm1A&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNdN5IyUeDOGEXWne6FA1fn8p6E2OZuaicW_z9JVCm1A&s=10"
-    },
-    {
-        id: 8,
-        nome: "Jogo de Chaves de Fenda Isoladas",
-        descricao: "Kit com 6 peças isoladas para 1000V. Ponta magnética e cabo ergonômico antiderrapante.",
-        preco: 75.50,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzm-0FeNqvqY-nzDIv7YASA9SfW1kwBbw7SULiT5a1w&s=10",
-        thumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzm-0FeNqvqY-nzDIv7YASA9SfW1kwBbw7SULiT5a1w&s=10"
-    },
-];
+// إعداد الاتصال بقاعدة بيانات Supabase
+const SUPABASE_URL = 'https://qjtqbtxagdzfyaixnfso.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqdHFidHhhZ2R6ZnlhaXhuZnNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzg1ODksImV4cCI6MjEwNTg1NDU4OX0.H2CDch43Bj6F3FKVPjLuAjXeFBEzRUDEt3fkYCEiJTc';
 
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// مصفوفات لتخزين المنتجات والسلة
+let listaProdutos = [];
 let carrinho = [];
+
+// جلب المنتجات من قاعدة البيانات عند تحميل الصفحة (تحديث اسم الجدول لـ produtors)
+async function carregarProdutos() {
+    const { data: produtors, error } = await _supabase
+        .from('produtors')
+        .select('*')
+        .order('id', { ascending: true });
+
+    if (error) {
+        console.error("Erro ao buscar produtors:", error.message);
+        return;
+    }
+
+    // حفظ المنتجات في المصفوفة الأساسية لضمان عمل الفلترة والبحث
+    listaProdutos = produtors.map(p => ({
+        ...p,
+        preco: Number(p.preco) // ضمان تحويل السعر لرقم
+    }));
+
+    renderizarProdutos(listaProdutos);
+}
 
 // إشعار الإضافة للسلة
 function mostrarNotificacao() {
@@ -81,31 +42,31 @@ function mostrarNotificacao() {
 }
 
 // عرض المنتجات مع خاصية الضغط لفتح صفحة/نافذة التفاصيل
-function renderizarProdutos(produtos) {
+function renderizarProdutos(produtors) {
     const grid = document.getElementById('produtosGrid');
     grid.innerHTML = '';
 
-    if (produtos.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666; font-size: 1.1rem;">Nenhum produto encontrado com essa palavra.</p>';
+    if (produtors.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666; font-size: 1.1rem;">Nenhum produto encontrado.</p>';
         return;
     }
 
-    produtos.forEach(produto => {
+    produtors.forEach(produto => {
         grid.innerHTML += `
             <div class="produto-card">
-                <img src="${produto.imagem}" alt="${produto.nome}" onclick="abrirModalProduto(${produto.id})" style="cursor: pointer;">
+                <img src="${produto.imagem}" alt="${produto.nome}" onclick="abrirModalProduto(${produto.id})" style="cursor: pointer;" onerror="this.src='https://via.placeholder.com/300'">
                 <div class="produto-info">
                     <h3 onclick="abrirModalProduto(${produto.id})" style="cursor: pointer; color: var(--primary-color);">${produto.nome}</h3>
-                    <p>${produto.descricao}</p>
+                    <p>${produto.descricao || ''}</p>
                     <span class="produto-preco">R$ ${produto.preco.toFixed(2)}</span>
-                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb}')">Adicionar ao Carrinho</button>
+                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb || produto.imagem}')">Adicionar ao Carrinho</button>
                 </div>
             </div>
         `;
     });
 }
 
-// فتح نافذة تفاصيل المنتج وصورته المكبرة
+// فتح نافذة تفاصيل المنتج وصورته المكبرة (تم تصحيح اسم المصفوفة إلى listaProdutos)
 function abrirModalProduto(id) {
     const produto = listaProdutos.find(p => p.id === id);
     if (!produto) return;
@@ -113,13 +74,13 @@ function abrirModalProduto(id) {
     const content = document.getElementById('productDetailContent');
     content.innerHTML = `
         <div style="text-align: center;">
-            <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+            <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" onerror="this.src='https://via.placeholder.com/300'">
             <h2 style="color: var(--primary-color); margin-bottom: 10px; font-size: 1.4rem;">${produto.nome}</h2>
-            <p style="color: #555; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem; text-align: left;">${produto.descricao}</p>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem; text-align: left;">${produto.descricao || ''}</p>
             <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 20px;">
                 R$ ${produto.preco.toFixed(2)}
             </div>
-            <button class="btn-add" style="width: 100%; padding: 12px; font-size: 1.05rem;" onclick="addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb}'); fecharModalProduto();">
+            <button class="btn-add" style="width: 100%; padding: 12px; font-size: 1.05rem;" onclick="addToCart('${produto.nome}', ${produto.preco}, '${produto.thumb || produto.imagem}'); fecharModalProduto();">
                 🛒 Adicionar ao Carrinho
             </button>
         </div>
@@ -174,7 +135,7 @@ function atualizarCarrinho() {
             cartItems.innerHTML += `
                 <div class="cart-item">
                     <div class="cart-item-info">
-                        <img src="${item.imagem}" alt="${item.nome}">
+                        <img src="${item.imagem}" alt="${item.nome}" onerror="this.src='https://via.placeholder.com/50'">
                         <div>
                             <h4 style="font-size: 0.9rem;">${item.nome}</h4>
                             <p style="color: var(--primary-color); font-weight: bold;">R$ ${item.preco.toFixed(2)}</p>
@@ -248,6 +209,7 @@ function fecharEConcluir() {
     modal.classList.remove('active');
 }
 
+// تحميل المنتجات عند تشغيل الصفحة (تم تصحيح اسم الدالة إلى carregarProdutos)
 document.addEventListener('DOMContentLoaded', () => {
-    renderizarProdutos(listaProdutos);
+    carregarProdutos();
 });
