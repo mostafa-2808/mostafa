@@ -157,5 +157,50 @@
 
     <!-- JavaScript File -->
     <script src="script.js"></script>
+    <!-- Supabase JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    const SUPABASE_URL = 'https://qjtqbtxagdzfyaixnfso.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqdHFidHhhZ2R6ZnlhaXhuZnNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzg1ODksImV4cCI6MjEwNTg1NDU4OX0.H2CDch43Bj6F3FKVPjLuAjXeFBEzRUDEt3fkYCEiJTc';
+
+    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // جلب وعرض المنتجات للعملاء في الصفحة الرئيسية
+    async function carregarProdutosSite() {
+        const { data: produtors, error } = await _supabase
+            .from('produtors')
+            .select('*')
+            .order('id', { ascending: true });
+
+        const grid = document.getElementById('produtosGrid');
+        if (!grid) return; // لو عنصر العرض غير موجود يتوقف
+
+        grid.innerHTML = '';
+
+        if (error || !produtors || produtors.length === 0) {
+            grid.innerHTML = '<p style="text-align: center; color: #666; grid-column: 1/-1;">Nenhum produto disponível no momento.</p>';
+            return;
+        }
+
+        produtors.forEach(produto => {
+            // يمكنك تخصيص شكل كارت المنتج بما يتناسب مع تصميم موقعك
+            grid.innerHTML += `
+                <div class="produto-card">
+                    <img src="${produto.imagem}" alt="${produto.nome}" onerror="this.src='https://via.placeholder.com/150'">
+                    <h3>${produto.nome}</h3>
+                    <p class="descricao">${produto.descricao || ''}</p>
+                    <p class="preco">R$ ${Number(produto.preco).toFixed(2)}</p>
+                    <a href="https://wa.me/5545999999999?text=Olá,%20gostaria%20de%20comprar%20o%20produto:%20${encodeURIComponent(produto.nome)}" target="_blank" class="btn-comprar">
+                        Comprar via WhatsApp 💬
+                    </a>
+                </div>
+            `;
+        });
+    }
+
+    // تنفيذ الدالة فور تحميل الصفحة الرئيسية
+    document.addEventListener('DOMContentLoaded', carregarProdutosSite);
+</script>
 </body>
 </html>
