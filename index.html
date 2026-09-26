@@ -156,10 +156,11 @@
         </svg>
     </a>
 
-    <!-- JavaScript File -->
-    <script src="script.js"></script>
-    <!-- Supabase JS CDN -->
+   <!-- أولاً: مكتبة Supabase من الـ CDN -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ثانياً: ملف السكريبت الخاص بك -->
+<script src="script.js"></script>
 
 <script>
     const SUPABASE_URL = 'https://qjtqbtxagdzfyaixnfso.supabase.co';
@@ -168,7 +169,7 @@
     const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // جلب وعرض المنتجات للعملاء في الصفحة الرئيسية
-    async function carregarProdutosSite() {
+    async function carregarProdutorsSite() {
         const { data: produtors, error } = await _supabase
             .from('produtors')
             .select('*')
@@ -192,7 +193,7 @@
                     <h3>${produto.nome}</h3>
                     <p class="descricao">${produto.descricao || ''}</p>
                     <p class="preco">R$ ${Number(produto.preco).toFixed(2)}</p>
-                    <a href="https://wa.me/5545999999999?text=Olá,%20gostaria%20de%20comprar%20o%20produto:%20${encodeURIComponent(produto.nome)}" target="_blank" class="btn-comprar">
+                    <a href="https://wa.me/554599999999?text=Olá,%20gostaria%20de%20comprar%20o%20produto:%20${encodeURIComponent(produto.nome)}" target="_blank" class="btn-comprar">
                         Comprar via WhatsApp 💬
                     </a>
                 </div>
